@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tiendas físicas vs. Tiendas online</title>
+  <meta name="description" content="Página básica que explica diferencias, ventajas y desventajas entre tiendas físicas y tiendas online." />
+  <style>
+    :root {
+      --bg: #0f172a;          /* slate-900 */
+      --card: #111827;        /* gray-900 */
+      --muted: #94a3b8;       /* slate-400 */
+      --text: #e5e7eb;        /* gray-200 */
+      --accent: #22d3ee;      /* cyan-400 */
+      --accent-2: #34d399;    /* emerald-400 */
+      --ring: rgba(34, 211, 238, 0.35);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", "Noto Sans", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 10% 0%, rgba(34,211,238,.08), transparent 60%),
+                  radial-gradient(900px 600px at 90% 10%, rgba(52,211,153,.08), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(8px);
+      background: rgba(15, 23, 42, 0.6);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 1.2rem; }
+    .brand { display: flex; gap: .6rem; align-items: center; font-weight: 700; letter-spacing: .3px; }
+    .brand-badge { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(45deg, var(--accent), var(--accent-2)); box-shadow: 0 0 0 6px rgba(34,211,238,0.15); }
+
+    .hero { text-align: center; padding: 3.5rem 1rem 2rem; }
+    .title { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.15; margin: 0 0 .6rem; }
+    .subtitle { color: var(--muted); max-width: 52ch; margin: 0 auto; }
+
+    .grid { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-top: 2rem; }
+    @media (min-width: 860px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.0));
+      border: 1px solid rgba(148,163,184,0.15);
+      border-radius: 18px; padding: 1.2rem; box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+    .card h3 { margin-top: 0; font-size: 1.25rem; }
+    .card ul { padding-left: 1.1rem; margin: .6rem 0 0; }
+
+    .badge { display: inline-block; padding: .25rem .55rem; border: 1px solid rgba(148,163,184,0.25); border-radius: 999px; font-size: .8rem; color: var(--muted); }
+
+    .compare { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    .compare th, .compare td { text-align: left; padding: .8rem .9rem; border-bottom: 1px solid rgba(148,163,184,0.18); vertical-align: top; }
+    .compare th { color: var(--muted); font-weight: 600; letter-spacing: .3px; font-size: .9rem; }
+
+    .cta {
+      margin: 2.5rem auto 1.5rem; max-width: 900px; display: grid; gap: 1rem; grid-template-columns: 1fr; align-items: center;
+      background: linear-gradient(120deg, rgba(34,211,238,0.09), rgba(52,211,153,0.09));
+      border: 1px solid rgba(148,163,184,0.2);
+      border-radius: 18px; padding: 1.2rem 1.2rem;
+    }
+    @media (min-width: 860px) { .cta { grid-template-columns: 3fr 2fr; } }
+    .cta h3 { margin: .2rem 0; }
+
+    .btn {
+      display: inline-block; text-decoration: none; color: #0b1324; background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      padding: .8rem 1rem; border-radius: 12px; font-weight: 700; border: none; cursor: pointer;
+      box-shadow: 0 10px 18px rgba(34,211,238,0.15);
+    }
+    .btn:focus { outline: 3px solid var(--ring); outline-offset: 3px; }
+
+    footer { color: var(--muted); border-top: 1px solid rgba(148,163,184,0.15); margin-top: 2.5rem; }
+
+    .small { font-size: .9rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:.8rem;">
+      <div class="brand"><span class="brand-badge" aria-hidden="true"></span> Comercio 101</div>
+      <nav aria-label="Secciones">
+        <a class="badge" href="#que-son">¿Qué son?</a>
+        <a class="badge" href="#ventajas">Ventajas</a>
+        <a class="badge" href="#comparacion">Comparación</a>
+        <a class="badge" href="#elegir">¿Cuál elegir?</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1 class="title">Tiendas físicas vs. tiendas online</h1>
+      <p class="subtitle">Entiende las diferencias clave, beneficios y retos de cada modelo. Esta guía básica te ayuda a decidir cómo vender y comprar en la era digital.</p>
+    </section>
+
+    <section id="que-son" class="grid" aria-labelledby="que-son-title">
+      <article class="card">
+        <h3 id="que-son-title">¿Qué es una tienda física?</h3>
+        <p>Es un <strong>punto de venta presencial</strong> donde el cliente visita el local, ve los productos y paga en caja. Ejemplos: supermercados, boutiques, ferreterías.</p>
+        <ul>
+          <li>Interacción cara a cara</li>
+          <li>Experiencia táctil del producto</li>
+          <li>Entrega inmediata</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>¿Qué es una tienda online?</h3>
+        <p>Es un <strong>canal digital</strong> que vende por Internet (web o app). El cliente compra desde cualquier lugar y recibe el pedido a domicilio o lo recoge en tienda.</p>
+        <ul>
+          <li>Disponibilidad 24/7</li>
+          <li>Alcance nacional o global</li>
+          <li>Pagos electrónicos y envío</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="ventajas" class="grid" aria-labelledby="ventajas-title">
+      <article class="card">
+        <h3 id="ventajas-title">Ventajas típicas</h3>
+        <ul>
+          <li><strong>Físicas:</strong> confianza local, prueba de producto, atención personalizada.</li>
+          <li><strong>Online:</strong> menor costo fijo, catálogo amplio, análisis de datos, automatización.</li>
+        </ul>
+        <p class="small">Nota: muchos negocios combinan ambos: <em>click & collect</em>, pagos en línea con retiro en tienda, o exhibición física y venta web.</p>
+      </article>
+      <article class="card">
+        <h3>Retos comunes</h3>
+        <ul>
+          <li><strong>Físicas:</strong> alquileres, horario limitado, inventario en sitio.</li>
+          <li><strong>Online:</strong> logística de envíos, confianza del cliente, competencia global.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="comparacion" class="card" aria-labelledby="comparacion-title">
+      <h3 id="comparacion-title">Comparación rápida</h3>
+      <table class="compare" role="table">
+        <thead>
+          <tr role="row">
+            <th scope="col">Aspecto</th>
+            <th scope="col">Tienda física</th>
+            <th scope="col">Tienda online</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Costos</td>
+            <td>Altos (renta, servicios, personal)</td>
+            <td>Menores fijos, más gasto en marketing y envíos</td>
+          </tr>
+          <tr>
+            <td>Alcance</td>
+            <td>Local/regional</td>
+            <td>Nacional o internacional</td>
+          </tr>
+          <tr>
+            <td>Experiencia</td>
+            <td>Táctil e inmediata</td>
+            <td>Cómoda, comparativa y 24/7</td>
+          </tr>
+          <tr>
+            <td>Logística</td>
+            <td>Stock en tienda</td>
+            <td>Envíos, devoluciones, bodegas</td>
+          </tr>
+          <tr>
+            <td>Confianza</td>
+            <td>Reputación local y trato directo</td>
+            <td>Reseñas, sellos de seguridad, política de devoluciones</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="elegir" class="cta" aria-labelledby="elegir-title">
+      <div>
+        <h3 id="elegir-title">¿Cuál deberías elegir?</h3>
+        <p>
+          Si buscas <strong>proximidad y servicio personalizado</strong>, la tienda física es ideal. Si necesitas <strong>escalar y vender 24/7</strong>, empieza por una tienda online. Lo mejor de ambos mundos es un enfoque <strong>omnicanal</strong>: presencia local + catálogo online, pagos digitales, y opciones de entrega o recogida.
+        </p>
+      </div>
+      <div>
+        <a class="btn" href="#" onclick="alert('¡Gracias por visitar! Esto es solo una demo.'); return false;">Empezar con mi tienda</a>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="pasos-title">
+      <h3 id="pasos-title">Pasos iniciales (muy básicos)</h3>
+      <ol>
+        <li>Define tu público y tu propuesta de valor.</li>
+        <li>Para físico: elige ubicación, permisos y layout del local.</li>
+        <li>Para online: selecciona plataforma (Shopify, WooCommerce, Mercado Shops).</li>
+        <li>Organiza inventario, medios de pago y logística (envíos o recogida).</li>
+        <li>Lanza campañas simples en redes y mide resultados.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="small">© 2025 Guía básica de comercio. Hecho como ejemplo educativo.</p>
+    </div>
+  </footer>
+</body>
+</html>
